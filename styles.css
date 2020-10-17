@@ -45,6 +45,10 @@ input {
     font-family: 'Montserrat', sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 /* ** EXTRAS ** */
 
 .fa-star {
