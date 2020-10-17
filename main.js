@@ -27,7 +27,7 @@ for (let checkbox of filtroCategoria) {
     }
 }
 
-const hayCheckboxSeleccionado = () => {
+const haypuntajeeleccionado = () => {
     for (let checkbox of filtroCategoria) {
         if (checkbox.checked) {
             return true
@@ -47,8 +47,49 @@ const coincideCheckboxYProducto = producto => {
 const filtrarProductos = () => {
     for (let producto of productos) {
         producto.classList.add('hidden')
-        if (hayCheckboxSeleccionado()) {
+        if (haypuntajeeleccionado()) {
             if (coincideCheckboxYProducto(producto)) {
+                producto.classList.remove('hidden')
+            }
+        }
+        else {
+            producto.classList.remove('hidden')
+        }
+    }
+}
+
+// ** FILTRO POR PUNTAJE **
+
+const filtroPuntaje = document.querySelectorAll(".filtro-review")
+console.log(filtroPuntaje)
+for (let puntaje of filtroPuntaje) {
+    puntaje.oninput = () => {
+        filtrarPuntaje();
+    }
+}
+
+const hayPuntajeSeleccionado = () => {
+    for (let puntaje of filtroPuntaje) {
+        if (puntaje.checked) {
+            return true
+        }
+    }
+}
+
+const coincidePuntajeYProducto = producto => {
+    const review = producto.dataset.review;
+    for (let puntaje of filtroPuntaje) {
+        if (puntaje.value === review && puntaje.checked) {
+            return true
+        }
+    }
+}
+
+const filtrarPuntaje = () => {
+    for (let producto of productos) {
+        producto.classList.add('hidden')
+        if (hayPuntajeSeleccionado()) {
+            if (coincidePuntajeYProducto(producto)) {
                 producto.classList.remove('hidden')
             }
         }
