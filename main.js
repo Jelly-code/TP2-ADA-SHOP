@@ -219,4 +219,6 @@ botonAbrirCarrito.onclick = () => {
 }
 
 
-
+botonCerrarCarrito.onclick = () => {
+    carrito.classList.add('open')
+}
