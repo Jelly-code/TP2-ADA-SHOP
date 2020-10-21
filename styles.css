@@ -49,6 +49,14 @@ input {
     display: none;
 }
 
+.no-scroll {
+    position: fixed;
+}
+
+.open {
+    transform: translateX(-20%);
+    transition: 0.2s;
+}
 /* ** EXTRAS ** */
 
 .fa-star {

@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <!-- ** HEADER ** -->
+    <!-- 🌟🌟 HEADER 🌟🌟 -->
     <header class="header-principal">
-        <div class="contenedor-header-principal">
+        <nav class="contenedor-header-principal">
             <div class="contenedor-logo">
                 <img src="img/iso_blanco.svg" class="logo" alt="Logo ADA SHOP" aria-hidden="true" />
                 <p class="titulo-logo">ADA SHOP</p>
@@ -23,20 +23,21 @@
                     Carrito (<span class="carrito-cant">2</span> items)
                 </button>
             </div>
-        </div>
+        </nav>
+
         <div class="banner">
             <h1 class="titulo-banner">ELECTRÓNICA</h1>
         </div>
     </header>
 
-    <!-- ** FILTROS IZQUIERDA ** -->
+    <!-- 🌟🌟 FILTROS IZQUIERDA 🌟🌟 -->
     <main>
-        <section class="filtros-izq" id="filtros-izq">
+        <section class="filtros-izq">
             <button type="button" class="cerrar-filtros-btn" aria-label="Cerrar filtros">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </button>
 
-            <!-- ** HEADER FILTROS ** -->
+            <!-- 🌟🌟 HEADER FILTROS 🌟🌟 -->
             <div class="contenedor-filtros">
                 <div class="header-contenedor-filtros">
                     <h2 class="titulo-filtros">FILTROS</h2>
@@ -47,7 +48,7 @@
                 </div>
             </div>
 
-            <!-- ** FILTRO POR BUSQUEDA ** -->
+            <!-- 🌟🌟 FILTRO POR BUSQUEDA 🌟🌟 -->
             <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">BÚSQUEDA</h3>
                 <label aria-label="Búsqueda" class="filtro-busqueda">
@@ -56,7 +57,7 @@
                 </label>
             </div>
 
-            <!-- ** FILTROS POR CATEGORIA ** -->
+            <!-- 🌟🌟 FILTROS POR CATEGORIA 🌟🌟 -->
             <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">CATEGORÍA</h3>
                 <label>
@@ -81,7 +82,7 @@
                 </label>
             </div>
 
-            <!-- ** FILTROS POR PUNTAJE ** -->
+            <!-- 🌟🌟 FILTROS POR PUNTAJE 🌟🌟 -->
             <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">PUNTAJE</h3>
                 <label>
@@ -142,14 +143,14 @@
             </div>
         </section>
 
-        <!-- ** FILTRO 'VER COMO' PRODUCTOS ** -->
+        <!-- 🌟🌟 FILTRO 'VER COMO' PRODUCTOS 🌟🌟 -->
         <section>
             <header class="header-productos">
-                <p class="productos-filtrados-cant" id="lista-productos"></p>
+                <p>Mostrando <span class="productos-mostrados">12</span> producto(s) de <span class="productos-total">12</span></p>
                 <button type="button" class="abrir-filtros-btn" aria-label="Abrir filtros">
                     <i class="fas fa-filter" aria-hidden="true"></i>
                 </button>
-                <div class="ver-modo-btns">
+                <div class="ver-como-btns">
                     <p>Ver como</p>
                     <button type="button" class="ver-btn grid-btn" aria-label="Ver como grilla">
                         <i class="fas fa-th" aria-hidden="true"></i>
@@ -158,8 +159,14 @@
                         <i class="fas fa-list" aria-hidden="true"></i>
                     </button>
                 </div>
+                <button type="button" aria-label="Abrir filtros" class="filtros-responsive-btn">
+                    <i class="fas fa-filter" aria-hidden="true"></i>
+                    Filtros
+                </button>
             </header>
-            <!-- ** PRODUCTOS ** -->
+
+            <!-- 🌟🌟 PRODUCTOS 🌟🌟 -->
+
             <div class="productos">
                 <article class="producto" data-id="0" data-name="Celular Xiaomi" data-category="celulares"
                     data-price="22400" data-image="img/xiaomi.jpg" data-review="3">
@@ -513,7 +520,7 @@
         </section>
     </main>
 
-    <!-- ** FOOTER ** -->
+    <!-- 🌟🌟 FOOTER PRINCIPAL 🌟🌟 -->
 
     <footer>
         <div class="contenedor-logo">
@@ -522,9 +529,9 @@
         </div>
     </footer>
 
-    <!-- ** CARRITO ** -->
+    <!-- 🌟🌟 CARRITO 🌟🌟 -->
 
-    <section id="carrito" class="carrito" aria-hidden="true">
+    <section class="carrito" aria-hidden="true">
         <header>
             <h2 id="header-carrito">Carrito</h2>
             <button type="button" class="cerrar-carrito-btn" aria-label="Cerrar carrito">
@@ -534,7 +541,8 @@
         <div class="carrito-lleno">
             <p class="productos-carrito-cant">2 producto(s) agregado(s)</p>
             <div class="productos-carrito-agregados">
-                <!-- ** PRODUCTO 1 ** -->
+
+                <!-- 🌟🌟 PRODUCTO DENTRO DEL CARRITO 1 🌟🌟 -->
 
                 <article class="producto-agregado" data-id="11" data-cant="1" data-price="4000">
                     <img src="img/mouse.jpg" alt="Mouse Gamer" class="img-producto-carrito" />
@@ -554,7 +562,9 @@
                         </div>
                     </div>
                 </article>
-                <!-- ** PRODUCTO 2 ** -->
+
+                <!-- 🌟🌟 PRODUCTO DENTRO DEL CARRITO 2 🌟🌟 -->
+
                 <article class="producto-agregado" data-id="9" data-cant="1" data-price="79000">                    
                     <img src="img/iphone.jpeg" alt="iPhone" class="img-producto" />                   
                     <div class="detalles-producto-carrito">
@@ -585,9 +595,9 @@
         </div>
     </section>
 
-    <!-- ** OVERLAY ** -->
+    <!-- 🌟🌟 OVERLAY 🌟🌟 -->
     <div class="overlay hidden">
-        <!-- ** MODAL CARRITO ** -->
+        <!-- 🌟🌟 MODAL CARRITO 🌟🌟 -->
         <div class="modal vaciar-carrito-modal hidden">
             <p class="msj-modal" id="vaciar-carrito-descripcion">
                 Estás por vaciar el carrito, ¿quieres continuar?
@@ -602,7 +612,7 @@
             </footer>
         </div>
 
-        <!-- ** CHECKOUT ** -->
+        <!-- 🌟🌟 CHECKOUT 🌟🌟 -->
         <div class="modal checkout hidden">
             <h2 class="titulo-modal">Checkout</h2>
             <div class="flex-contenedor">
@@ -623,7 +633,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- ** OPCIONES DE PAGO ** -->
+                    <!-- 🌟🌟 OPCIONES DE PAGO 🌟🌟 -->
                     <div class="checkout-pago">
                         <h3>Opciones de pago</h3>
                         <div class="contenedor-seccion-checkout">
@@ -649,7 +659,7 @@
                     </div>
                 </form>
 
-                <!-- ** SUBTOTALES ** -->
+                <!-- 🌟🌟 SUBTOTALES 🌟🌟 -->
                 <section class="carrito-total-final">
                     <h3 class="titulo-total-carrito">Resumen</h3>
                     <div>
@@ -671,7 +681,7 @@
                     </div>
                 </section>
             </div>
-            <!-- ** FOOTER MODAL ** -->
+            <!-- 🌟🌟 FOOTER MODAL 🌟🌟 -->
             <footer class="acciones-modal">
                 <button type="button" class="button button-default cancelar-comprar-btn">
                     Seguir comprando
@@ -682,7 +692,7 @@
             </footer>
         </div>
     </div>
-<!-- ** OVERLAY SIDEBAR ** -->
+<!-- 🌟🌟 OVERLAY SIDEBAR 🌟🌟 -->
 <div class="overlay-sidebar hidden"></div>
 
 

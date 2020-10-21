@@ -1,56 +1,110 @@
-// ** FILTRO POR BUSQUEDA **
+const busquedaProducto = document.getElementById("busqueda-input") //INPUT BUSQUEDA//
+const productos = document.querySelectorAll(".producto") //LISTA DE PRODUCTOS
+const filtroCategoria = document.querySelectorAll(".filtro-categoria") //LISTA DE CHECKBOX CATEGORIA
+const filtroPuntaje = document.querySelectorAll(".filtro-review") //LISTA DE CHECKBOX PUNTAJE
 
-const busquedaProducto = document.getElementById("busqueda-input")
-const productos = document.querySelectorAll(".producto")
+// FILTROS RESPONSIVE
 
+const botonFiltrosResponsive = document.getElementsByClassName('filtros-responsive-btn')
 
-const busquedaUsuario = () => {
-    if (busquedaProducto.value) {
-        return true;
-    } 
-    
-    else {
-        return false;
-    }
+// FILTRO PRODUCTOS
+
+const mostrarProductos = (producto) => {
+    return producto.classList.remove('hidden')
 }
 
-const pasaFiltroBusqueda = (producto) => {
-    if (busquedaUsuario()) {
-        if (coincideBusquedaConProducto(producto)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        return true;
-    }
+const ocultarProductos = (producto) => {
+    return producto.classList.add('hidden')
 }
 
-const coincideBusquedaConProducto = (producto) => {
-    let nombre = producto.dataset.name;
-    let busquedaInput = busquedaProducto.value.toLowerCase();
+// ** FILTROS **
 
-    if (nombre.includes(busquedaInput)) {
-        return true;
-    } 
-    else {
-        return false;
-    }
-}
-
-// ** FILTRO POR CATEGORIA **
-
-const filtroCategoria = document.querySelectorAll(".filtro-categoria")
+busquedaProducto.oninput = () => {
+    filtrarProductos()
+    filtrarProductosMostrados()
+};
 
 for (let checkbox of filtroCategoria) {
-    checkbox.oninput = () => {
-        filtroProductos();
+    checkbox.onclick = () => {
+        filtrarProductos()
+        filtrarProductosMostrados()
+    }
+};
+
+for (let checkbox of filtroPuntaje) {
+    checkbox.onclick = () => {
+        filtrarProductos()
+        filtrarProductosMostrados()
+    }
+};
+
+const filtrarProductos = () => {
+    for (let producto of productos) {
+        if (pasaFiltros(producto)) {
+            mostrarProductos(producto)
+        }
+        else {
+            ocultarProductos(producto)
+        }
+    }
+};
+
+const pasaFiltros = (producto) => {
+    if (
+        pasaFiltroBusqueda(producto) &&
+        pasaFiltroCategoria(producto) &&
+        pasaFiltroPuntaje(producto)) {
+        return true
+    }
+    else {
+        return false
+    }
+};
+
+// FILTRO BUSQUEDA
+
+const pasaFiltroBusqueda = (producto) => {
+    if (inputTieneBusqueda()) {
+        if (busquedaCoincideConProducto(producto)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    else {
+        return true
     }
 }
 
-const hayCheckboxSeleccionado = () => {
+const inputTieneBusqueda = () => {
+    return Boolean(busquedaProducto.value)
+}
+
+const busquedaCoincideConProducto = (producto) => {
+    if (producto.dataset.name.includes(busquedaProducto.value.toLowerCase())) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+// FILTRO CATEGEORIA
+
+const pasaFiltroCategoria = (producto) => {
+    if (checkboxCategoriaSeleccionado()) {
+        if (coincideCategoriaConProducto(producto)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    return true
+}
+
+const checkboxCategoriaSeleccionado = () => {
     for (let checkbox of filtroCategoria) {
         if (checkbox.checked) {
             return true
@@ -58,61 +112,61 @@ const hayCheckboxSeleccionado = () => {
     }
 }
 
-const coincideCheckboxYProducto = producto => {
-    const category = producto.dataset.category;
+const coincideCategoriaConProducto = (producto) => {
+    const categoria = producto.dataset.category
     for (let checkbox of filtroCategoria) {
-        if (checkbox.value === category && checkbox.checked) {
-            return true
-        }
-    }
-}
-
-const filtroProductos = () => {
-    for (let producto of productos) {
-        producto.classList.add('hidden')
-        if (hayCheckboxSeleccionado()) {
-            if (coincideCheckboxYProducto(producto)) {
-                producto.classList.remove('hidden')
+        if (checkbox.checked) {
+            if (checkbox.value === categoria) {
+                return true
             }
         }
+    }
+    return false
+}
+
+
+// FILTRO PUNTAJE 
+
+const pasaFiltroPuntaje = (producto) => {
+    if (checkboxPuntajeSeleccionado()) {
+        if (coincidePuntajeConProducto(producto)) {
+            return true
+        }
         else {
-            producto.classList.remove('hidden')
+            return false
         }
     }
-}
-
-// ** FILTRO POR PUNTAJE **
-
-const filtroPuntaje = document.querySelectorAll(".filtro-review")
-console.log(filtroPuntaje)
-for (let puntaje of filtroPuntaje) {
-    puntaje.oninput = () => {
-        filtrarPuntaje();
+    else {
+        return true
     }
+    
 }
 
-const hayPuntajeSeleccionado = () => {
-    for (let puntaje of filtroPuntaje) {
-        if (puntaje.checked) {
+const checkboxPuntajeSeleccionado = () => {
+    for (let checkbox of filtroPuntaje) {
+        if (checkbox.checked) {
             return true
         }
     }
 }
 
-const coincidePuntajeYProducto = producto => {
-    const review = producto.dataset.review;
-    for (let puntaje of filtroPuntaje) {
-        if (puntaje.value === review && puntaje.checked) {
-            return true
+const coincidePuntajeConProducto = (producto) => {
+    const puntaje = producto.dataset.review
+    for (let checkbox of filtroPuntaje) {
+        if (checkbox.checked) {
+            if(checkbox.value === puntaje) {
+                return true
+            }
         }
     }
+    return false
 }
 
 const filtrarPuntaje = () => {
     for (let producto of productos) {
         producto.classList.add('hidden')
-        if (hayPuntajeSeleccionado()) {
-            if (coincidePuntajeYProducto(producto)) {
+        if (checkboxSeleccionado()) {
+            if (coincideCheckboxConProducto(producto)) {
                 producto.classList.remove('hidden')
             }
         }
@@ -121,40 +175,20 @@ const filtrarPuntaje = () => {
         }
     }
 }
+// ACTUALIZAR PRODUCTOS FILTRADOS 
 
-// ** FILTROS AL MISMO TIEMPO **
+const productosTotales = document.getElementsByClassName('productos-total')
+const productosMostrados = document.getElementsByClassName('productos-mostrados')
+const productosOcultos = document.getElementsByClassName('productos hidden')
 
-const ocultarProducto = (producto) => {
-    return producto.classList.add("hidden");
-  };
-  
-const mostrarProducto = (producto) => {
-    return producto.classList.remove("hidden");
-};
-
-const pasaFiltros = (producto) => {
-    if (pasaFiltroBusqueda(producto) &&
-        filtrarPuntaje(producto) &&
-        filtroProductos()
-        ) {
-        return true;        
-    }
-    else {
-        return false;
-    }
+const filtrarProductosMostrados = () => {
+    productosFiltrados = productos.length - productosOcultos.length
+    productosMostrados.textContent = productosFiltrados
+    productosTotales.textContent = productos.length
 }
 
-const filtroProductoFinal = () => {
-    for (let producto of productos) {
-      if (pasaFiltros(producto)) {
-        mostrarProducto(producto);
-      } else {
-        ocultarProducto(producto);
-      }
-    }
-  };
 
-// ** LIMPIAR FILTROS **
+// ** LIMPIAR FILTROS ** 
 
 const filtros = document.querySelectorAll(".filtro")
 const limpiarFiltrosBtn = document.querySelector(".limpiar-filtros-btn")
@@ -167,34 +201,22 @@ limpiarFiltrosBtn.onclick = () => {
     for (let filtro of filtros) {
         filtro.checked = false;
     }
+    filtrarProductosMostrados()
 }
 
-// ** ACTUALIZAR PRODUCTOS FILTRADOS **
+// ABRIR CARRITO 
 
-// let cantidad = 0
-// const cantidadProductosFiltrados = document.getElementsByClassName("productos-filtrados-cant")
+const botonAbrirCarrito = document.getElementsByClassName('abrir-carrito-btn')
+const botonCerrarCarrito = document.getElementsByClassName('cerrar-carrito-btn')
+const overlaySidebar = document.getElementsByClassName('overlay-sidebar')
+const carrito = document.querySelector('.carrito')
+const body = document.body
 
-// const actualizarCantidadProductosFiltrados = () => {
-//     for (let producto of productos) {
-//         if (pasaFiltros(producto)) {
-//             cantidad++
-//         }
-//     }
-//     cantidadProductosFiltrados.innerText = `Mostrando ${cantidad} producto(s) de ${productos.length}`
-// }
+console.log(botonAbrirCarrito)
 
-// const actualizarProductosFiltrados = () => {
-//     for (let producto of productos) {
-//         if (pasaFiltros(producto)) {
-//             producto.classList.remove('hidden')
-//         }
-//         else {
-//             producto.classList.add('hidden')
-//         }
-//     }
-// }
+botonAbrirCarrito.onclick = () => {
+    carrito.classList.add('open')
+}
 
-// const filtrarProductosFinal = () => {
-//     actualizarProductosFiltrados()
-//     actualizarCantidadProductosFiltrados();
-// }
+
+
