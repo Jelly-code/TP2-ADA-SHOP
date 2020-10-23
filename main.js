@@ -206,19 +206,20 @@ limpiarFiltrosBtn.onclick = () => {
 
 // ABRIR CARRITO 
 
-const botonAbrirCarrito = document.getElementsByClassName('abrir-carrito-btn')
-const botonCerrarCarrito = document.getElementsByClassName('cerrar-carrito-btn')
+const botonAbrirCarrito = document.getElementById('abrir-carrito-btn')
+const botonCerrarCarrito = document.getElementById('cerrar-carrito-btn')
 const overlaySidebar = document.getElementsByClassName('overlay-sidebar')
 const carrito = document.querySelector('.carrito')
 const body = document.body
 
-console.log(botonAbrirCarrito)
-
 botonAbrirCarrito.onclick = () => {
-    carrito.classList.add('open')
+    carrito.classList.remove('hidden')
+    overlaySidebar.classList.remove('hidden')
+    body.classList.add('no-scroll')
 }
 
-
 botonCerrarCarrito.onclick = () => {
-    carrito.classList.add('open')
+    carrito.classList.add('hidden')
+    overlaySidebar.classList.remove('hidden')
+    body.classList.remove('no-scroll')
 }
