@@ -204,7 +204,9 @@ limpiarFiltrosBtn.onclick = () => {
     filtrarProductosMostrados()
 }
 
-// ABRIR CARRITO 
+// ** SECCION CARRITO **
+
+// ABRIR CARRITO
 
 const botonAbrirCarrito = document.getElementById('abrir-carrito-btn')
 const botonCerrarCarrito = document.getElementById('cerrar-carrito-btn')
@@ -218,8 +220,28 @@ botonAbrirCarrito.onclick = () => {
     body.classList.add('no-scroll')
 }
 
+// CERRAR CARRITO
+
 botonCerrarCarrito.onclick = () => {
     carrito.classList.add('hidden')
     overlaySidebar.classList.remove('hidden')
     body.classList.remove('no-scroll')
 }
+
+// BOTON COMPRAR - VACIAR CARRITO
+
+const botonComprarCarrito = document.querySelector('.comprar-carrito-btn')
+const botonVaciarCarrito = document.querySelector('.vaciar-carrito-btn')
+const botonSeguirComprando = document.querySelector('.seguir-comprando-btn')
+const finalizarCompra = document.getElementsByClassName('finalizar-compra-btn')
+const dialogoVaciarCarrito = document.getElementsByClassName('vaciar-carrito-modal')
+const cancelarVaciarCarritoBtn = document.getElementsByClassName('cancelar-vaciar-btn')
+const confirmarVaciarCarritoBtn = document.getElementsByClassName('confirmar-vaciar-btn')
+const overlayCarrito = document.getElementsByClassName('overlay')
+
+botonComprarCarrito.onclick = () => {
+    dialogoVaciarCarrito.classList.remove('hidden')
+    overlayCarrito.classList.remove('hidden')
+}
+
+
