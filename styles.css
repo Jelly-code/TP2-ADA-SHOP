@@ -134,7 +134,7 @@ body.con-overlay {
     z-index: 2;
 }
 
-.overlay-side {
+.overlay-carrito {
     z-index: 1;
 }
 
@@ -192,6 +192,8 @@ footer {
 .header-btns {
     display: flex;
 }
+
+
 
 #abrir-carrito-btn, #abrir-filtros-btn {
     font-size: 15px;
@@ -406,7 +408,7 @@ footer {
 
 /* ** OVERLAY ** */
 
-.overlay, .overlay-sidebar {
+.overlay, .overlay-carrito {
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -521,10 +523,6 @@ footer {
 
 .checkout {
     min-width: 800px;
-}
-
-.overlay-sidebar, .overlay {
-    display: none;
 }
 
 /* ** CHECKOUT ** */
