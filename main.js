@@ -210,7 +210,7 @@ limpiarFiltrosBtn.onclick = () => {
 
 const botonAbrirCarrito = document.getElementById('abrir-carrito-btn')
 const botonCerrarCarrito = document.getElementById('cerrar-carrito-btn')
-const overlaySidebar = document.getElementsByClassName('overlay-sidebar')
+const overlaySidebar = document.querySelector('.overlay-sidebar')
 const carrito = document.querySelector('.carrito')
 const body = document.body
 
@@ -233,11 +233,11 @@ botonCerrarCarrito.onclick = () => {
 const botonComprarCarrito = document.querySelector('.comprar-carrito-btn')
 const botonVaciarCarrito = document.querySelector('.vaciar-carrito-btn')
 const botonSeguirComprando = document.querySelector('.seguir-comprando-btn')
-const finalizarCompra = document.getElementsByClassName('finalizar-compra-btn')
-const dialogoVaciarCarrito = document.getElementsByClassName('vaciar-carrito-modal')
-const cancelarVaciarCarritoBtn = document.getElementsByClassName('cancelar-vaciar-btn')
-const confirmarVaciarCarritoBtn = document.getElementsByClassName('confirmar-vaciar-btn')
-const overlayCarrito = document.getElementsByClassName('overlay')
+const finalizarCompra = document.querySelector('.finalizar-compra-btn')
+const dialogoVaciarCarrito = document.querySelector('.vaciar-carrito-modal')
+const cancelarVaciarCarritoBtn = document.querySelector('.cancelar-vaciar-btn')
+const confirmarVaciarCarritoBtn = document.querySelector('.confirmar-vaciar-btn')
+const overlayCarrito = document.querySelector('.overlay')
 
 botonComprarCarrito.onclick = () => {
     dialogoVaciarCarrito.classList.remove('hidden')
