@@ -230,19 +230,57 @@ botonCerrarCarrito.onclick = () => {
 
 // BOTON COMPRAR - VACIAR CARRITO
 
-const botonComprarCarrito = document.querySelector('.comprar-carrito-btn')
-const botonVaciarCarrito = document.querySelector('.vaciar-carrito-btn')
-const botonSeguirComprando = document.querySelector('.seguir-comprando-btn')
-const finalizarCompra = document.querySelector('.finalizar-compra-btn')
-const dialogoVaciarCarrito = document.querySelector('.vaciar-carrito-modal')
-const cancelarVaciarCarritoBtn = document.querySelector('.cancelar-vaciar-btn')
-const confirmarVaciarCarritoBtn = document.querySelector('.confirmar-vaciar-btn')
 const overlay = document.querySelector('.overlay')
 
+const botonComprarCarrito = document.querySelector('.comprar-carrito-btn')
+const botonVaciarCarrito = document.querySelector('.vaciar-carrito-btn')
+
+const dialogoVaciarCarrito = document.querySelector('.vaciar-carrito-modal')
+const confirmarVaciarCarritoBtn = document.querySelector('.confirmar-vaciar-btn')
+const cancelarVaciarCarritoBtn = document.querySelector('.cancelar-vaciar-btn')
+
+const checkoutCarrito = document.querySelector('.checkout')
+const botonSeguirComprando = document.querySelector('.seguir-comprando-btn')
+const finalizarCompra = document.querySelector('.finalizar-compra-btn')
+
+// VACIAR CARRITO 
 botonVaciarCarrito.onclick = () => {
     dialogoVaciarCarrito.classList.remove('hidden')
     overlay.classList.remove('hidden')
+    checkoutCarrito.classList.add('hidden')
 }
+
+// CANCELAR VACIAR CARRITO
+cancelarVaciarCarritoBtn.onclick = () => {
+    dialogoVaciarCarrito.classList.add('hidden')
+    overlay.classList.add('hidden')    
+}
+
+// CONFIRMAR VACIAR CARRITO
+confirmarVaciarCarritoBtn.onclick = () => {
+    dialogoVaciarCarrito.classList.add('hiddden')
+    overlay.classList.add('hidden')
+    carrito.classList.add('hidden')
+    overlayCarrito.classList.add('hidden')
+    body.classList.remove('no-scroll')
+}
+
+// COMPRAR PRODUCTOS
+botonComprarCarrito.onclick = () => {
+    overlay.classList.remove('hidden')
+    checkoutCarrito.classList.remove('hidden')
+    dialogoVaciarCarrito.classList.add('hidden')
+}
+
+// SEGUIR COMPRANDO
+botonSeguirComprando.onclick = () => {
+    overlay.classList.add('hidden')
+    dialogoVaciarCarrito.classList.add('hidden')
+}
+
+
+
+
 
 
 

@@ -527,6 +527,10 @@ footer {
 
 /* ** CHECKOUT ** */
 
+.flex-contenedor {
+    display: flex;
+}
+
 .checkout .flex-contenedor {
     justify-content: space-between;
     align-items: stretch;
@@ -578,7 +582,7 @@ footer {
     align-items: center;
 }
 
-.total-carrito {
+.carrito-total-final {
     min-width: 300px;
     background-color: #f6f6f6;
     border-radius: 5px;
@@ -588,16 +592,24 @@ footer {
     justify-content: space-between;
 }
 
-.total-carrito-titulo {
-    margin: 0 0 20px 0;
+.total-carrito {
+    font-size: 28px;
+    font-weight: 800;
 }
 
-.total-carrito p {
-    font-weight: 500;
+.carrito-total-final p {
     margin: 0;
     line-height: 1.8;
     display: flex;
     justify-content: space-between;
+}
+
+.totales {
+    font-weight: 500;
+}
+
+.total-carrito-titulo {
+    margin: 0 0 20px 0;
 }
 
 .descuento-carrito {
@@ -606,12 +618,6 @@ footer {
 
 .delivery-carrito, .recargo-carrito {
     color: #ad1010;
-}
-
-.total-carrito, .carrito-total-final {
-    font-size: 28px;
-    font-weight: 800;
-    margin-top: 15px;
 }
 
 .contenedor-seccion-checkout {
@@ -626,7 +632,7 @@ footer {
 /* ** CLASES ESPECIALES ** */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .no-scroll {
