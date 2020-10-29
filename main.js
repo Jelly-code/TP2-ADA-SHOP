@@ -278,7 +278,36 @@ botonSeguirComprando.onclick = () => {
     dialogoVaciarCarrito.classList.add('hidden')
 }
 
+// ** CHECKOUT **
 
+const subtotalCarrito = document.querySelector('.valor-subtotal-carrito')
+const valorDescuento = document.querySelector('.valor-descuento-carrito')
+const valorDelivery = document.querySelector('.valor-delivery-carrito')
+const valorRegargo = document.querySelector('.valor-recargo-carrito')
+const totalCarrito = document.querySelector('.valor-total-carrito')
+
+
+// SUBTOTAL
+const actualizarSubtotal = () => {
+    const productoCarrito = document.querySelector('.producto-agregado')
+    let valorSubtotalCarrito = 0
+
+    for (let producto of productoCarrito) {
+        valorSubtotalCarrito = valorSubtotalCarrito + (producto.value * Number(producto.dataset.price))
+    }
+
+    subtotalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
+    totalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
+    return valorSubtotalCarrito
+}
+
+// TOTAL CHECKOUT
+// cons totalCheckout = () => {
+//     for (let )
+// }
+
+const opcionesDePago = document.getElementsByClassName('opciones-pago')
+console.log(opcionesDePago)
 
 
 
