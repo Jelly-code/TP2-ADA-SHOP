@@ -279,38 +279,106 @@ botonSeguirComprando.onclick = () => {
 }
 
 // ** CHECKOUT **
+const pagoEfectivo = document.querySelector('.efectivo')
 
 const subtotalCarrito = document.querySelector('.valor-subtotal-carrito')
 const valorDescuento = document.querySelector('.valor-descuento-carrito')
 const valorDelivery = document.querySelector('.valor-delivery-carrito')
-const valorRegargo = document.querySelector('.valor-recargo-carrito')
+const valorRecargo = document.querySelector('.valor-recargo-carrito')
 const totalCarrito = document.querySelector('.valor-total-carrito')
 
 
 // SUBTOTAL
+const productoCarrito = document.querySelectorAll('.producto-agregado')
+
 const actualizarSubtotal = () => {
-    const productoCarrito = document.querySelector('.producto-agregado')
-    let valorSubtotalCarrito = 0
+    let valorSubtotalCarrito = 0 
 
     for (let producto of productoCarrito) {
-        valorSubtotalCarrito = valorSubtotalCarrito + (producto.value * Number(producto.dataset.price))
+       valorSubtotalCarrito = valorSubtotalCarrito + (producto.value * Number(producto.dataset.price))
     }
 
-    subtotalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
-    totalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
-    return valorSubtotalCarrito
+    subtotalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
+    totalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
+    return actualizarSubtotal()
 }
 
 // TOTAL CHECKOUT
-// cons totalCheckout = () => {
-//     for (let )
-// }
-
 const opcionesDePago = document.getElementsByClassName('opciones-pago')
-console.log(opcionesDePago)
 
+const totalCheckout = () => {
+    for (let opcion of opcionesDePago) {
+        opcion.onclick = () => {
+            calcularTotal()
+        }
+    }
+}
 
+// TOTAL 
+const calcularTotal = () => {
+    let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
+    let valorTotal = valorSubtotal
 
+    valorTotal = valorSubtotal + tieneRecargoCredito() + tieneEnvio() + tieneTarjetaDescuento()
+    total.textContent = (`${'$'}${valorTotal}`)
+    return valorTotal
+}
 
+// PAGO CON TARJETA CREDITO
+const pagoCredito = document.querySelector('.credito')
+const parrafoCredito = document.querySelector('.recargo-carrito')
 
+let totalCredito
 
+const tieneRecargoCredito = () => {
+    let valorSubtotal = Number(subtotal.textContent.slice(1))
+    if (pagoCredito.checked) {
+        parrafoCredito.classList.remove('hidden')
+        totalCredito = Number((valorSubtotal * 0.1).toFixed(1))
+        valorRecargo.textContent = (`${'$'}${totalCredito}`)
+    }
+    else {
+        totalCredito = 0
+        parrafoCredito.classList.add('hidden')
+    }
+    return totalCredito
+}
+
+//RECARGO DE ENVIO
+const recargoEnvio = document.querySelector('.envio')
+const parrafoDelivery = document.querySelector('.delivery-carrito')
+
+let costoEnvio
+
+const tieneRecargoEnvio = () => {
+    if (recargoEnvio.checked){
+        parrafoDelivery.classList.remove('hidden')
+        costoEnvio = 300
+        valorDelivery.textContent = (`${'$'}${costoEnvio}`)
+    }
+    else {
+        costoEnvio = 0
+        parrafoDelivery.classList.add('hidden')
+    }
+    return costoEnvio
+}
+
+//DESCUENTO
+const descuento = document.querySelector('.descuento')
+const parrafoDescuento = document.querySelector('.descuento-carrito')
+
+let totalDescuento
+
+const tieneDescuento = () => {
+    let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
+    if (descuento.checked) {
+        parrafoDescuento.classList.remove('hidden')
+        totalDescuento = Number((- valorSubtotal * 0.05).toFixed(1))
+        valorDescuento.textContent = (`${'$'}${totalDescuento}`)
+    }
+    else {
+        totalDescuento = 0
+        parrafoDescuento.classList.add('hidden')
+    }
+    return totalDescuento
+}
