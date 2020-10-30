@@ -325,14 +325,14 @@ const calcularTotal = () => {
 }
 
 // PAGO CON TARJETA CREDITO
-const pagoCredito = document.querySelector('.credito')
+const checkboxCredito = document.querySelector('.credito')
 const parrafoCredito = document.querySelector('.recargo-carrito')
 
 let totalCredito
 
 const tieneRecargoCredito = () => {
     let valorSubtotal = Number(subtotal.textContent.slice(1))
-    if (pagoCredito.checked) {
+    if (checkboxCredito.checked) {
         parrafoCredito.classList.remove('hidden')
         totalCredito = Number((valorSubtotal * 0.1).toFixed(1))
         valorRecargo.textContent = (`${'$'}${totalCredito}`)
@@ -345,13 +345,13 @@ const tieneRecargoCredito = () => {
 }
 
 //RECARGO DE ENVIO
-const recargoEnvio = document.querySelector('.envio')
+const checkboxEnvio = document.querySelector('.envio')
 const parrafoDelivery = document.querySelector('.delivery-carrito')
 
 let costoEnvio
 
 const tieneRecargoEnvio = () => {
-    if (recargoEnvio.checked){
+    if (checkboxEnvio.checked){
         parrafoDelivery.classList.remove('hidden')
         costoEnvio = 300
         valorDelivery.textContent = (`${'$'}${costoEnvio}`)
@@ -364,14 +364,14 @@ const tieneRecargoEnvio = () => {
 }
 
 //DESCUENTO
-const descuento = document.querySelector('.descuento')
+const checkboxDescuento = document.querySelector('.descuento')
 const parrafoDescuento = document.querySelector('.descuento-carrito')
 
 let totalDescuento
 
 const tieneDescuento = () => {
     let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
-    if (descuento.checked) {
+    if (checkboxDescuento.checked) {
         parrafoDescuento.classList.remove('hidden')
         totalDescuento = Number((- valorSubtotal * 0.05).toFixed(1))
         valorDescuento.textContent = (`${'$'}${totalDescuento}`)
