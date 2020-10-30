@@ -319,7 +319,7 @@ const calcularTotal = () => {
     let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
     let valorTotal = valorSubtotal
 
-    valorTotal = valorSubtotal + tieneRecargoCredito() + tieneEnvio() + tieneTarjetaDescuento()
+    valorTotal = valorSubtotal + tieneRecargoCredito() + tieneRecargoEnvio() + tieneDescuento()
     total.textContent = (`${'$'}${valorTotal}`)
     return valorTotal
 }
@@ -365,6 +365,9 @@ const tieneRecargoEnvio = () => {
 
 //DESCUENTO
 const checkboxDescuento = document.querySelector('.descuento')
+console.log(checkboxCredito)
+console.log(checkboxDescuento)
+console.log(checkboxEnvio)
 const parrafoDescuento = document.querySelector('.descuento-carrito')
 
 let totalDescuento
@@ -382,3 +385,4 @@ const tieneDescuento = () => {
     }
     return totalDescuento
 }
+
