@@ -207,7 +207,6 @@ limpiarFiltrosBtn.onclick = () => {
 // ** SECCION CARRITO **
 
 // ABRIR CARRITO
-
 const botonAbrirCarrito = document.getElementById('abrir-carrito-btn')
 const botonCerrarCarrito = document.getElementById('cerrar-carrito-btn')
 const overlayCarrito = document.querySelector('.overlay-carrito')
@@ -221,7 +220,6 @@ botonAbrirCarrito.onclick = () => {
 }
 
 // CERRAR CARRITO
-
 botonCerrarCarrito.onclick = () => {
     carrito.classList.add('hidden')
     overlayCarrito.classList.add('hidden')
@@ -229,7 +227,6 @@ botonCerrarCarrito.onclick = () => {
 }
 
 // ** BOTON COMPRAR - VACIAR CARRITO **
-
 const overlay = document.querySelector('.overlay')
 
 const botonComprarCarrito = document.querySelector('.comprar-carrito-btn')
@@ -279,6 +276,7 @@ botonSeguirComprando.onclick = () => {
 }
 
 // ** CHECKOUT **
+
 const valorDescuento = document.querySelector('.valor-descuento-carrito')
 const valorDelivery = document.querySelector('.valor-delivery-carrito')
 const valorRecargo = document.querySelector('.valor-recargo-carrito')
@@ -297,7 +295,7 @@ totalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
 const parrafoCredito = document.querySelector('.recargo-carrito')
 
 const recargoCredito = (valorSubtotalCarrito) => {
-    let recargo = valorSubtotalCarrito * 01
+    let recargo = valorSubtotalCarrito * 0.1
     return valorSubtotalCarrito + recargo
 }
 
@@ -305,14 +303,14 @@ const recargoCredito = (valorSubtotalCarrito) => {
 const parrafoDelivery = document.querySelector('.delivery-carrito')
 
 const gastoEnvio = (valorSubtotalCarrito) => {
-    return valorSubtotalCarrito + 300
+    return valorSubtotalCarrito + 50
 }
 
 //DESCUENTO
 const parrafoDescuento = document.querySelector('.descuento-carrito')
 
 const tieneDescuento = (valorSubtotalCarrito) => {
-    let valorDescuento = valorSubtotalCarrito * 0.05
+    let valorDescuento = valorSubtotalCarrito * 0.1
     return valorSubtotalCarrito - valorDescuento
 }
 
@@ -324,29 +322,28 @@ const checkboxDescuento = document.querySelector('.descuento')
 
 radioEfectivo.oninput = () => {
     subtotalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`) 
-    totalCarrito.textContent = obtenerTotal(valorSubtotalCarrito)
+    totalCarrito.textContent = '$' + obtenerTotal(valorSubtotalCarrito)
 }
 
 radioCredito.oninput = () => {
     parrafoCredito.classList.remove('hidden')
-    valorRecargo.textContent = (recargoCredito(valorSubtotalCarrito) - valorSubtotalCarrito).toFixed(2)
-    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+    valorRecargo.textContent = '$' + (recargoCredito(valorSubtotalCarrito) - valorSubtotalCarrito)
+    totalCarrito.textContent = '$' + (obtenerTotal(valorSubtotalCarrito))
 }
 
 checkboxDescuento.oninput = () => {
     parrafoDescuento.classList.toggle('hidden')
-    valorDescuento.textContent = (valorSubtotalCarrito - tieneDescuento(valorSubtotalCarrito)).toFixed(2)
-    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+    valorDescuento.textContent = '$' + (valorSubtotalCarrito - tieneDescuento(valorSubtotalCarrito))
+    totalCarrito.textContent = '$' + (obtenerTotal(valorSubtotalCarrito))
 }
 
 checkboxEnvio.oninput = () => {
     parrafoDelivery.classList.toggle('hidden')
-    valorDescuento.textContent = 300
-    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+    valorDelivery.textContent = '$50'
+    totalCarrito.textContent = '$' + (obtenerTotal(valorSubtotalCarrito))
 }
 
-//TOTAL
-
+// TOTAL
 const obtenerTotal = (valorSubtotalCarrito) => {
     let descuentoFinal = 0
     let recargoFinal = 0
@@ -366,3 +363,5 @@ const obtenerTotal = (valorSubtotalCarrito) => {
     }
     return valorSubtotalCarrito + descuentoFinal + recargoFinal + envioFinal
 }
+
+// ** 'VER COMO' LISTA - GRILLA **
