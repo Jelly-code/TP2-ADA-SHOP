@@ -178,6 +178,8 @@ const filtrarPuntaje = () => {
 // ** ACTUALIZAR PRODUCTOS FILTRADOS **
 const productosMostrados = document.querySelector('.productos-mostrados')
 
+productosMostrados.textContent = `Mostrando 12 producto(s) de ${productos.length}`
+
 const filtrarProductosMostrados = () => {
     let numeroProductosMostrados = 0
     for (let producto of productos) {
@@ -365,3 +367,41 @@ const obtenerTotal = (valorSubtotalCarrito) => {
 }
 
 // ** 'VER COMO' LISTA - GRILLA **
+
+const botonGrilla = document.getElementById('grid-btn')
+const botonLista = document.getElementById('lista-btn')
+
+const contenedorProductos = document.getElementById('contenedor-productos')
+const especificacionesProductos = document.getElementsByClassName('contenido-producto')
+const descripcionProductos = document.getElementsByClassName('descripcion-producto')
+
+
+// VER COMO LISTA
+botonLista.onclick = () => {
+    contenedorProductos.classList.add('productos-columna')
+    for (let producto of productos) {
+        producto.classList.add('img-lista')
+    }
+    for (let especificacion of especificacionesProductos) {
+        especificacion.classList.add('producto-horizontal')
+    }
+    for (let descripcion of descripcionProductos) {
+        descripcion.classList.remove('hidden')
+    }
+}
+
+// VER COMO GRILLA
+botonGrilla.onclick = () => {
+    contenedorProductos.classList.add('productos')
+    contenedorProductos.classList.remove('productos-columna')
+   
+    for (let producto of productos) {
+        producto.classList.remove('img-lista')
+    }
+    for (let especificacion of especificacionesProductos) {
+        especificacion.classList.remove('producto-horizontal')
+    }
+    for (let descripcion of descripcionProductos) {
+        descripcion.classList.add('hidden')
+    }
+}

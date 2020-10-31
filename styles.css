@@ -308,22 +308,6 @@ footer {
 
 /* ** SECCION DE PRODUCTOS ** */
 
-/* ** FILTRO VER COMO ** */
-
-.ver-como-btns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-}
-
-.ver-btn {
-    font-size: 20px;
-    color: #000;
-    padding: 0;
-    margin-left: 15px;
-}
-
 /* ** PRODUCTOS ** */
 
 .header-productos {
@@ -352,7 +336,9 @@ footer {
     text-align: center;
     margin: 10px;
     box-shadow: 0px 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    width: calc(100% / 3 - 10px * 2); 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .producto:hover {
@@ -362,10 +348,12 @@ footer {
 
 .contenido-producto {
     padding: 0 20px;
-}
-
-.descripcion-producto {
-    display: none;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .accion-producto {
@@ -388,22 +376,52 @@ footer {
 
 .contenedor-img-producto {
     height: 250px;
+    width: 250px;
+    margin: 10px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .img-producto {
-    height: 100%;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-    transition: 0.2s;
+    transition: 0.2s ease-in;
     opacity: 1;
 }
 
 .contenedor-img-producto:hover .img-producto {
     transform: scale(1.5);
     opacity: 0.7;
+}
+
+/* ** FILTRO VER COMO ** */
+
+.ver-como-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.ver-btn {
+    font-size: 20px;
+    color: #000;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.productos-columna {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-lista {
+    display: flex;
+    flex-direction: row;
+}
+
+.producto-horizontal {
+    align-items: flex-start;
 }
 
 /* ** OVERLAY ** */

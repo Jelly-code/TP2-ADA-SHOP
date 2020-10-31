@@ -174,11 +174,11 @@
                 </button>
                 <div class="ver-como-btns">
                     <p>Ver como</p>
-                    <button type="button" class="ver-btn grid-btn" aria-label="Ver como grilla">
-                        <i class="fas fa-th" aria-hidden="true"></i>
+                    <button type="button" class="ver-btn" aria-label="Ver como grilla">
+                        <i class="fas fa-th" id="grid-btn" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="ver-btn lista-btn" aria-label="Ver como lista">
-                        <i class="fas fa-list" aria-hidden="true"></i>
+                    <button type="button" class="ver-btn" aria-label="Ver como lista">
+                        <i class="fas fa-list" id="lista-btn" aria-hidden="true"></i>
                     </button>
                 </div>
                 <button type="button" aria-label="Abrir filtros" id="filtros-responsive-btn">
@@ -190,7 +190,7 @@
             <!-- 🌟🌟 P R O D U C T O S 🌟🌟 -->
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
-            <div class="productos">
+            <div class="productos" id="contenedor-productos">
                 <article class="producto" data-id="0" data-name="celular xiaomi" data-category="celulares"
                     data-price="22400" data-image="img/xiaomi.jpg" data-review="3">
                     <div class="contenedor-img-producto">
@@ -200,7 +200,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Celular Xiaomi</h3>
                             <p class="valor-producto">$ 22400</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -229,7 +229,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">PlayStation 4</h3>
                             <p class="valor-producto">$ 59000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -258,7 +258,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Cámara Nikon</h3>
                             <p class="valor-producto">$ 54000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -287,7 +287,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Headphones Sony</h3>
                             <p class="valor-producto">$ 24000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -316,7 +316,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Nintendo Switch</h3>
                             <p class="valor-producto">$ 46000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -345,7 +345,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Notebook Asus</h3>
                             <p class="valor-producto">$ 32900</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -374,7 +374,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Notebook MSI</h3>
                             <p class="valor-producto">$ 37000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -403,7 +403,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Headphones Philips</h3>
                             <p class="valor-producto">$ 11000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -432,7 +432,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Macbook</h3>
                             <p class="valor-producto">$ 119000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -461,7 +461,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">iPhone</h3>
                             <p class="valor-producto">$ 79000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -490,7 +490,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Xbox One</h3>
                             <p class="valor-producto">$ 69000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
@@ -519,7 +519,7 @@
                         <div class="contenido-producto">
                             <h3 class="nombre-producto">Mouse Gamer</h3>
                             <p class="valor-producto">$ 4000</p>
-                            <p class="descripcion-producto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            <p class="descripcion-producto hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                 Quidem perferendis perspiciatis itaque esse tempora sed
                                 repellat enim officiis, consectetur sit quia pariatur. Aut
                                 enim dignissimos doloremque culpa tenetur. Possimus, quasi.</p>
