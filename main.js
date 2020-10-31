@@ -175,18 +175,18 @@ const filtrarPuntaje = () => {
         }
     }
 }
-// ACTUALIZAR PRODUCTOS FILTRADOS 
-
-const productosTotales = document.getElementsByClassName('productos-total')
-const productosMostrados = document.getElementsByClassName('productos-mostrados')
-const productosOcultos = document.getElementsByClassName('productos hidden')
+// ** ACTUALIZAR PRODUCTOS FILTRADOS **
+const productosMostrados = document.querySelector('.productos-mostrados')
 
 const filtrarProductosMostrados = () => {
-    productosFiltrados = productos.length - productosOcultos.length
-    productosMostrados.textContent = productosFiltrados
-    productosTotales.textContent = productos.length
+    let numeroProductosMostrados = 0
+    for (let producto of productos) {
+        if (pasaFiltros(producto)) {
+            numeroProductosMostrados++
+        }
+    }
+    productosMostrados.textContent = `Mostrando ${numeroProductosMostrados} producto(s) de ${productos.length}`
 }
-
 
 // ** LIMPIAR FILTROS ** 
 
@@ -228,7 +228,7 @@ botonCerrarCarrito.onclick = () => {
     body.classList.remove('no-scroll')
 }
 
-// BOTON COMPRAR - VACIAR CARRITO
+// ** BOTON COMPRAR - VACIAR CARRITO **
 
 const overlay = document.querySelector('.overlay')
 
@@ -279,110 +279,90 @@ botonSeguirComprando.onclick = () => {
 }
 
 // ** CHECKOUT **
-const pagoEfectivo = document.querySelector('.efectivo')
-
-const subtotalCarrito = document.querySelector('.valor-subtotal-carrito')
 const valorDescuento = document.querySelector('.valor-descuento-carrito')
 const valorDelivery = document.querySelector('.valor-delivery-carrito')
 const valorRecargo = document.querySelector('.valor-recargo-carrito')
 const totalCarrito = document.querySelector('.valor-total-carrito')
+const subtotalCarrito = document.querySelector('.valor-subtotal-carrito')
 
-
-// SUBTOTAL
 const productoCarrito = document.querySelectorAll('.producto-agregado')
 
-const actualizarSubtotal = () => {
-    let valorSubtotalCarrito = 0 
+// SUBTOTAL
+const valorSubtotalCarrito = 83000
 
-    for (let producto of productoCarrito) {
-       valorSubtotalCarrito = valorSubtotalCarrito + (producto.value * Number(producto.dataset.price))
-    }
-
-    subtotalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
-    totalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
-    return actualizarSubtotal()
-}
-
-// TOTAL CHECKOUT
-const opcionesDePago = document.getElementsByClassName('opciones-pago')
-
-const totalCheckout = () => {
-    for (let opcion of opcionesDePago) {
-        opcion.onclick = () => {
-            calcularTotal()
-        }
-    }
-}
-
-// TOTAL 
-const calcularTotal = () => {
-    let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
-    let valorTotal = valorSubtotal
-
-    valorTotal = valorSubtotal + tieneRecargoCredito() + tieneRecargoEnvio() + tieneDescuento()
-    total.textContent = (`${'$'}${valorTotal}`)
-    return valorTotal
-}
+subtotalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`) 
+totalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`)
 
 // PAGO CON TARJETA CREDITO
-const checkboxCredito = document.querySelector('.credito')
 const parrafoCredito = document.querySelector('.recargo-carrito')
 
-let totalCredito
-
-const tieneRecargoCredito = () => {
-    let valorSubtotal = Number(subtotal.textContent.slice(1))
-    if (checkboxCredito.checked) {
-        parrafoCredito.classList.remove('hidden')
-        totalCredito = Number((valorSubtotal * 0.1).toFixed(1))
-        valorRecargo.textContent = (`${'$'}${totalCredito}`)
-    }
-    else {
-        totalCredito = 0
-        parrafoCredito.classList.add('hidden')
-    }
-    return totalCredito
+const recargoCredito = (valorSubtotalCarrito) => {
+    let recargo = valorSubtotalCarrito * 01
+    return valorSubtotalCarrito + recargo
 }
 
 //RECARGO DE ENVIO
-const checkboxEnvio = document.querySelector('.envio')
 const parrafoDelivery = document.querySelector('.delivery-carrito')
 
-let costoEnvio
-
-const tieneRecargoEnvio = () => {
-    if (checkboxEnvio.checked){
-        parrafoDelivery.classList.remove('hidden')
-        costoEnvio = 300
-        valorDelivery.textContent = (`${'$'}${costoEnvio}`)
-    }
-    else {
-        costoEnvio = 0
-        parrafoDelivery.classList.add('hidden')
-    }
-    return costoEnvio
+const gastoEnvio = (valorSubtotalCarrito) => {
+    return valorSubtotalCarrito + 300
 }
 
 //DESCUENTO
-const checkboxDescuento = document.querySelector('.descuento')
-console.log(checkboxCredito)
-console.log(checkboxDescuento)
-console.log(checkboxEnvio)
 const parrafoDescuento = document.querySelector('.descuento-carrito')
 
-let totalDescuento
-
-const tieneDescuento = () => {
-    let valorSubtotal = Number(subtotalCarrito.textContent.slice(1))
-    if (checkboxDescuento.checked) {
-        parrafoDescuento.classList.remove('hidden')
-        totalDescuento = Number((- valorSubtotal * 0.05).toFixed(1))
-        valorDescuento.textContent = (`${'$'}${totalDescuento}`)
-    }
-    else {
-        totalDescuento = 0
-        parrafoDescuento.classList.add('hidden')
-    }
-    return totalDescuento
+const tieneDescuento = (valorSubtotalCarrito) => {
+    let valorDescuento = valorSubtotalCarrito * 0.05
+    return valorSubtotalCarrito - valorDescuento
 }
 
+// CHECKBOX - RADIO CHECKOUT
+const radioEfectivo = document.querySelector('.efectivo')
+const radioCredito = document.querySelector('.credito')
+const checkboxEnvio = document.querySelector('.envio')
+const checkboxDescuento = document.querySelector('.descuento')
+
+radioEfectivo.oninput = () => {
+    subtotalCarrito.textContent = (`${'$'}${valorSubtotalCarrito}`) 
+    totalCarrito.textContent = obtenerTotal(valorSubtotalCarrito)
+}
+
+radioCredito.oninput = () => {
+    parrafoCredito.classList.remove('hidden')
+    valorRecargo.textContent = (recargoCredito(valorSubtotalCarrito) - valorSubtotalCarrito).toFixed(2)
+    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+}
+
+checkboxDescuento.oninput = () => {
+    parrafoDescuento.classList.toggle('hidden')
+    valorDescuento.textContent = (valorSubtotalCarrito - tieneDescuento(valorSubtotalCarrito)).toFixed(2)
+    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+}
+
+checkboxEnvio.oninput = () => {
+    parrafoDelivery.classList.toggle('hidden')
+    valorDescuento.textContent = 300
+    totalCarrito.textContent = (obtenerTotal(valorSubtotalCarrito)).toFixed(2)
+}
+
+//TOTAL
+
+const obtenerTotal = (valorSubtotalCarrito) => {
+    let descuentoFinal = 0
+    let recargoFinal = 0
+    let envioFinal = 0
+
+    if (checkboxDescuento.checked) {
+        descuentoFinal = tieneDescuento(valorSubtotalCarrito) - valorSubtotalCarrito
+    }
+    if (radioCredito.checked) {
+        recargoFinal = recargoCredito(valorSubtotalCarrito) - valorSubtotalCarrito
+    }
+    else {
+        parrafoCredito.classList.add('hidden')
+    }
+    if (checkboxEnvio.checked) {
+        envioFinal = gastoEnvio(valorSubtotalCarrito) - valorSubtotalCarrito
+    }
+    return valorSubtotalCarrito + descuentoFinal + recargoFinal + envioFinal
+}
