@@ -726,11 +726,15 @@ footer {
     }
     .acciones-modal button {
         margin-left: 0;
+        justify-content: space-evenly;
     }
     .modal {
         width: 100vh;
         overflow: scroll;
         padding: 10px 0;
+    }
+    .vaciar-carrito-modal {
+        overflow: hidden;
     }
     .checkout {
         min-width: 500px;
