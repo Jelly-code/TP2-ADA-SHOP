@@ -295,7 +295,7 @@ footer {
     position: fixed;
     top: 12px;
     right: 230px;
-    font-size: 15px;
+    font-size: 20px;
     color: #ad1010;
 }
 
@@ -719,6 +719,7 @@ footer {
     }
     .limpiar-filtros-btn {
         margin-left: 50px;
+        font-size: 15px;
     }
     .contenedor-seccion-checkout {
         display: flex;
