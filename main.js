@@ -412,10 +412,13 @@ const abrirFiltrosPrincipal = document.querySelector('#abrir-filtros-btn')
 const cerrarFiltrosPrincipal = document.querySelector('#cerrar-filtros-btn')
 const modalFiltros = document.querySelector('.filtros-izq')
 
+modalFiltros.classList.add('hidden-responsive')
+
 abrirFiltrosPrincipal.onclick = () => {
     overlay.classList.remove('hidden')
     modalFiltros.classList.remove('hidden-responsive')
     body.classList.add('no-scroll')
+    dialogoVaciarCarrito.classList.add('hidden')
 }
 
 cerrarFiltrosPrincipal.onclick = () => {
