@@ -679,9 +679,15 @@ footer {
 
 /* ** RESPONSIVE ** */
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
     .show-responsive {
-        display: block;
+        display: block !important;
+    }
+    h3 {
+        font-size: 17px;
+    }
+    h2 {
+        font-size: 20px;
     }
     .filtros-izq {
         flex-grow: 0;
@@ -727,6 +733,14 @@ footer {
     .acciones-modal button {
         margin-left: 0;
         justify-content: space-evenly;
+        width: 150px;
+        height: 32px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .finalizar-compra-btn {
+        min-width: 150px;
+        height: 30px;
     }
     .modal {
         width: 100vh;
@@ -737,10 +751,10 @@ footer {
         overflow: hidden;
     }
     .checkout {
-        min-width: 500px;
+        min-width: 250px;
     }
     .checkout-pago {
-        padding: 20px 20px;
+        padding: 10px 15px;
     }
     .confirmar-vaciar-btn {
         max-width: none;
@@ -768,10 +782,12 @@ footer {
         font-size: 20px;
     }
     .checkout-personal-info {
-        padding: 20px 20px 40px;
+        padding: 15px 15px 20px;
     }
     .checkout-personal-info-inputs {
-        margin-top: 15px;
+        margin-top: 10px;
     }
-
+    .checkout label {
+        font-size: 12px;
+    }
 }
