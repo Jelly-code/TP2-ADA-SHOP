@@ -199,6 +199,10 @@ footer {
     line-height: 20px;
 }
 
+#abrir-filtros-btn {
+    display: none;
+}
+
 #abrir-carrito-btn i, #abrir-filtros-btn i{
     font-size: 20px;
     margin-right: 10px;
@@ -297,6 +301,7 @@ footer {
     right: 230px;
     font-size: 20px;
     color: #ad1010;
+    display: none;
 }
 
 /* ** SECCION DE PRODUCTOS ** */
@@ -663,19 +668,15 @@ footer {
 .no-scroll {
     position: fixed;
 }
-
-.open {
-    transform: translateX(0);
-    transition: 0.2s;
-}
 .hidden-responsive {
     display: none !important;
 }
 /* ** RESPONSIVE ** */
 
 @media (max-width: 750px) {
+    
     .show-responsive {
-        display: block !important;
+        display: flex !important;
     }
     h3 {
         font-size: 17px;
