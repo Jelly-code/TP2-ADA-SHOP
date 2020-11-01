@@ -408,18 +408,16 @@ botonGrilla.onclick = () => {
 
 // ** FILTROS RESPONSIVE **
 
-const abrirFiltrosVerComo = document.querySelector('#abrir-filtros-btn')
-const cerrarFiltrosVerComo = document.querySelector('#cerrar-filtros-btn')
-const cerrarFiltrosResponsive = document.querySelector('.filtros-responsive')
+const abrirFiltrosPrincipal = document.querySelector('#abrir-filtros-btn')
+const cerrarFiltrosPrincipal = document.querySelector('#cerrar-filtros-btn')
 
-c
 
-abrirFiltrosVerComo.onclick = () => {
+abrirFiltrosPrincipal.onclick = () => {
     overlay.classList.remove('hidden')
     body.classList.add('no-scroll')
 }
 
-cerrarFiltrosResponsive.onclick = () => {
+cerrarFiltrosPrincipal.onclick = () => {
     overlay.classList.add('hidden')
     body.classList.remove('no-scroll')
 }

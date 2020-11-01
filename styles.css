@@ -207,12 +207,7 @@ footer {
 }
 
 #abrir-carrito-btn {
-    font-weight: 300;
-    
-}
-
-#abrir-filtros-btn, #filtros-responsive-btn {
-    display: none;
+    font-weight: 300;    
 }
 
 /* ** BANNER ** */
@@ -303,6 +298,9 @@ footer {
     top: 20px;
     right: 20px;
     font-size: 20px;
+}
+
+#cerrar-filtros-btn, #abrir-filtros-btn {
     display: none;
 }
 
@@ -720,18 +718,25 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 5px;
+        justify-content: space-between;
     }
-    .modal.checkout {
-        max-height: none;
-        max-width: none;
-        height: 100%;
-        width: 100%;
-        right: 0;
-        left: 0;
-        top: 0;
-        overflow: scroll;
+    .acciones-modal {
+        margin-top: 10px
+    }
+    .acciones-modal button {
         margin-left: 0;
-        margin-top: 0;
+    }
+    .modal {
+        width: 100vh;
+        overflow: scroll;
+        padding: 10px 0;
+    }
+    .checkout {
+        min-width: 500px;
+    }
+    .checkout-pago {
+        padding: 20px 20px;
     }
     .confirmar-vaciar-btn {
         max-width: none;
@@ -745,6 +750,24 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+    .carrito-total-final {
+        min-width: 200px;
+    }
+    .ver-como-btns {
+        display: none;
+    }
+    #cerrar-filtros-btn, #abrir-filtros-btn {
+        cursor: pointer;
+    }
+    .total-carrito {
+        font-size: 20px;
+    }
+    .checkout-personal-info {
+        padding: 20px 20px 40px;
+    }
+    .checkout-personal-info-inputs {
+        margin-top: 15px;
     }
 
 }
