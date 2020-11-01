@@ -405,3 +405,21 @@ botonGrilla.onclick = () => {
         descripcion.classList.add('hidden')
     }
 }
+
+// ** FILTROS RESPONSIVE **
+
+const abrirFiltrosVerComo = document.querySelector('#abrir-filtros-btn')
+const cerrarFiltrosVerComo = document.querySelector('#cerrar-filtros-btn')
+const cerrarFiltrosResponsive = document.querySelector('.filtros-responsive')
+
+c
+
+abrirFiltrosVerComo.onclick = () => {
+    overlay.classList.remove('hidden')
+    body.classList.add('no-scroll')
+}
+
+cerrarFiltrosResponsive.onclick = () => {
+    overlay.classList.add('hidden')
+    body.classList.remove('no-scroll')
+}

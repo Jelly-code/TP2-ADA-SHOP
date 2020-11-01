@@ -40,13 +40,13 @@
 
     <main>
         <section class="filtros-izq">
-            <button type="button" id="cerrar-filtros-btn" aria-label="Cerrar filtros">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
             <!-- 🌟🌟 H E A D E R  F I L T R O S 🌟🌟 -->
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+
+            <button type="button" id="filtros-btn" class="hidden show-responsive" aria-label="Cerrar filtros">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
 
             <div class="contenedor-filtros">
                 <div class="header-contenedor-filtros">
@@ -169,8 +169,8 @@
         <section>
             <header class="header-productos">
                 <p class="productos-mostrados"></p>
-                <button type="button" id="abrir-filtros-btn" aria-label="Abrir filtros">
-                    <i class="fas fa-filter" aria-hidden="true"></i>
+                <button type="button" id="abrir-filtros-btn" class="show-responsive" aria-label="Abrir filtros">
+<!-- 🌟 FILTROS RESPONSIVE 🌟 --> <i class="fas fa-filter" aria-hidden="true"></i> <!-- 🌟 FILTROS RESPONSIVE 🌟 -->
                 </button>
                 <div class="ver-como-btns">
                     <p>Ver como</p>
@@ -181,11 +181,12 @@
                         <i class="fas fa-list" id="lista-btn" aria-hidden="true"></i>
                     </button>
                 </div>
-                <button type="button" aria-label="Abrir filtros" id="filtros-responsive-btn">
+                <button type="button" aria-label="Cerrar filtros" class="show-responsive" id="cerrar-filtros-btn">
                     <i class="fas fa-filter" aria-hidden="true"></i>
                     Filtros
                 </button>
             </header>
+
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
             <!-- 🌟🌟 P R O D U C T O S 🌟🌟 -->
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
