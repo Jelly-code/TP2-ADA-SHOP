@@ -412,11 +412,15 @@ const abrirFiltrosPrincipal = document.querySelector('#abrir-filtros-btn')
 const cerrarFiltrosPrincipal = document.querySelector('#cerrar-filtros-btn')
 const modalFiltros = document.querySelector('.filtros-izq')
 
-modalFiltros.classList.add('hidden-responsive')
+let mql = window.matchMedia('max-width: 850px') // ESTO CHEQUEA EL TAMAÑO DE PANTALLA
+
+if (mql.matches) {
+    modalFiltros.classList.add('hidden-responsive') //SI EL TAMAÑO COINCIDE ESCONDE LOS FILTROS EN ESCRITORIO
+}
 
 abrirFiltrosPrincipal.onclick = () => {
-    overlay.classList.remove('hidden')
     modalFiltros.classList.remove('hidden-responsive')
+    overlay.classList.remove('hidden')
     body.classList.add('no-scroll')
     dialogoVaciarCarrito.classList.add('hidden')
 }
