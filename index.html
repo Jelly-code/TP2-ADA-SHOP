@@ -39,12 +39,12 @@
     <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
     <main>
-        <section class="filtros-izq">
+        <section class="filtros-izq hidden-responsive">
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
             <!-- 🌟🌟 H E A D E R  F I L T R O S 🌟🌟 -->
             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
-            <button type="button" id="cerrar-filtros-btn" aria-label="Cerrar filtros">
+            <button type="button" id="cerrar-filtros-btn" class="show-responsive" aria-label="Cerrar filtros">
 <!-- 🌟 FILTROS RESPONSIVE 🌟 --> <i class="fas fa-times" aria-hidden="true"></i> <!-- 🌟 FILTROS RESPONSIVE 🌟 -->
             </button>
 
@@ -53,28 +53,24 @@
                     <h2 class="titulo-filtros">FILTROS</h2>
                     <button type="button" class="limpiar-filtros-btn">
                         <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                        Limpiar
+                        <p class="texto-filtros">Limpiar</p>
                     </button>
                 </div>
-            </div>
 
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
-            <!-- 🌟🌟 F I L T R O  P O R  B U S Q U E D A 🌟🌟 -->
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+                <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+                <!-- 🌟🌟 F I L T R O  P O R  B U S Q U E D A 🌟🌟 -->
+                <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
-            <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">BÚSQUEDA</h3>
                 <label aria-label="Búsqueda" class="filtro-busqueda">
                     <input type="text" name="Búsqueda" id="busqueda-input" class="busqueda-input" placeholder="Buscar productos" />
                     <i class="fas fa-search" aria-hidden="true"></i>
                 </label>
-            </div>
 
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
-            <!-- 🌟🌟 F I L T R O S  P O R  C A T E G O R I A 🌟🌟 -->
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+                <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+                <!-- 🌟🌟 F I L T R O S  P O R  C A T E G O R I A 🌟🌟 -->
+                <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
-            <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">CATEGORÍA</h3>
                 <label>
                     <input type="checkbox" class="filtro filtro-categoria" value="consolas">
@@ -96,13 +92,11 @@
                     <input type="checkbox" class="filtro filtro-categoria" value="accesorios">
                     <p>ACCESORIOS</p>
                 </label>
-            </div>
+            
+             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
+             <!-- 🌟🌟 F I L T R O S  P O R  P U N T A J E 🌟🌟 -->
+             <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
 
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
-            <!-- 🌟🌟 F I L T R O S  P O R  P U N T A J E 🌟🌟 -->
-            <!-- 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 -->
-
-            <div class="contenedor-filtros">
                 <h3 class="nombre-filtro">PUNTAJE</h3>
                 <label>
                     <input type="checkbox" name="review" class="filtro filtro-review" value="5">
@@ -171,10 +165,6 @@
                 <p class="productos-mostrados"></p>
                 <button type="button" id="abrir-filtros-btn" class="show-responsive" aria-label="Abrir filtros">
 <!-- 🌟 FILTROS RESPONSIVE 🌟 --> <i class="fas fa-filter" aria-hidden="true"></i> <!-- 🌟 FILTROS RESPONSIVE 🌟 -->
-                </button>
-                <button type="button" aria-label="Cerrar filtros" id="cerrar-filtros-btn">
-                    <i class="fas fa-filter" aria-hidden="true"></i>
-                    Filtros
                 </button>
                 <div class="ver-como-btns">
                     <p>Ver como</p>

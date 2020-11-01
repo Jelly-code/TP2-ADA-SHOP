@@ -410,14 +410,16 @@ botonGrilla.onclick = () => {
 
 const abrirFiltrosPrincipal = document.querySelector('#abrir-filtros-btn')
 const cerrarFiltrosPrincipal = document.querySelector('#cerrar-filtros-btn')
-
+const modalFiltros = document.querySelector('.filtros-izq')
 
 abrirFiltrosPrincipal.onclick = () => {
     overlay.classList.remove('hidden')
+    modalFiltros.classList.remove('hidden-responsive')
     body.classList.add('no-scroll')
 }
 
 cerrarFiltrosPrincipal.onclick = () => {
     overlay.classList.add('hidden')
+    modalFiltros.classList.add('hidden-responsive')
     body.classList.remove('no-scroll')
 }

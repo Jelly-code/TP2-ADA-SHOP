@@ -193,8 +193,6 @@ footer {
     display: flex;
 }
 
-
-
 #abrir-carrito-btn, #abrir-filtros-btn {
     font-size: 15px;
     margin-left: 10px;
@@ -294,14 +292,11 @@ footer {
 }
 
 #cerrar-filtros-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 20px;
-}
-
-#cerrar-filtros-btn, #abrir-filtros-btn {
-    display: none;
+    position: fixed;
+    top: 12px;
+    right: 230px;
+    font-size: 15px;
+    color: #ad1010;
 }
 
 /* ** SECCION DE PRODUCTOS ** */
@@ -341,7 +336,6 @@ footer {
 
 .producto:hover {
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
-    z-index: 1;
 }
 
 .contenido-producto {
@@ -491,8 +485,6 @@ footer {
     font-weight: 600;
     text-align: center;
 }
-
-
 
 #eliminar-carrito-btn {
     color: #ad1010;
@@ -676,7 +668,9 @@ footer {
     transform: translateX(0);
     transition: 0.2s;
 }
-
+.hidden-responsive {
+    display: none !important;
+}
 /* ** RESPONSIVE ** */
 
 @media (max-width: 750px) {
@@ -691,8 +685,15 @@ footer {
     }
     .filtros-izq {
         flex-grow: 0;
-        z-index: 2;
         width: 100%;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 4;
+        overflow: scroll;
+    }
+    .texto-filtros {
+        display: none;
     }
     .contenedor-filtros {
         background-color: #fff;
@@ -702,7 +703,7 @@ footer {
         right: 0;
         top: 0;
         transition: 1s;
-        transform: translate(270px);
+        z-index: 4;
     }
     .fas.fa-search {
         position: relative;
@@ -715,6 +716,9 @@ footer {
     .filtros-izq, .header-contenedor-filtros {
         display: flex;
         justify-content: flex-end;
+    }
+    .limpiar-filtros-btn {
+        margin-left: 50px;
     }
     .contenedor-seccion-checkout {
         display: flex;
@@ -762,7 +766,6 @@ footer {
         width: 100%;
         left: 0;
         top: 0;
-        z-index: 4;
         margin-left: 0;
         margin-top: 0;
         display: flex;
@@ -777,6 +780,9 @@ footer {
     }
     #cerrar-filtros-btn, #abrir-filtros-btn {
         cursor: pointer;
+    }
+    #cerrar-filtros-btn {
+        z-index: 5;
     }
     .total-carrito {
         font-size: 20px;
